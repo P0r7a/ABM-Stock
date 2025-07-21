@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.OleDb;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.OleDb;
-using System.Data;
+using System.Windows.Forms;
 namespace Stock
 {
     class Metodos
@@ -12,8 +14,10 @@ namespace Stock
         //Metodos generales para el programa
 
         //cargo la cadena de conexion en el string
-        string cadenaConexion = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|Proyecto.accdb";
-     
+        public static string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Proyecto.accdb");
+        string cadenaConexion = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + dbPath;
+
+
         //Metodo para lectura de la base de datos recibiendo la consulta SQL
         public DataTable connR(string sSQL)
         {          
