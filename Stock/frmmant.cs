@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -45,7 +46,58 @@ namespace Stock
 
         private void btningresar_Click(object sender, EventArgs e)
         {
-                if(!(txtnomb.Text==""))
+            //Verificaciones de campos necesarios
+            if (txtnomb.Text == "")
+            {
+                using (var confirmationForm = new frmError("El campo de Nombre no puede estar vacio"))
+                {
+                    confirmationForm.ShowDialog();
+                    return;
+                }
+            }
+            if (txtcant.Text == "")
+            {
+                using (var confirmationForm = new frmError("El campo de Cantidad no puede estar vacio"))
+                {
+                    confirmationForm.ShowDialog();
+                    return;
+                }
+            }
+            if (txtcat.Visible == true)
+            {
+                if (txtcat.Text == "")
+                {
+                    using (var confirmationForm = new frmError("El campo de Categoria no puede estar vacio"))
+                    {
+                        confirmationForm.ShowDialog();
+                        return;
+                    }
+                }
+            }
+
+
+            //Verifico que el campo de cantidad sea un numero
+            try
+            {
+                Cant = Convert.ToInt32(txtcant.Text);
+            }
+            catch (Exception)
+            {
+                //si no es un numero se iguala a 0
+                Cant = 0;
+            }
+
+            switch (Edit)
+            {
+                case true:
+                    break;
+
+                case false:
+                    break;
+            }
+
+
+            if (!(txtnomb.Text==""))
                 {
 
                     try
