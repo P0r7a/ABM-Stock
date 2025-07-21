@@ -26,6 +26,7 @@ Técnico en Programación
 📧 [Facundoaguiar45@gmail.com)]  
 🔗 [(https://www.linkedin.com/in/facundoaguiar)]
 🔗 [(www.facundo.net.ar)]
+
 ---
 
 ## 📌 Notas
