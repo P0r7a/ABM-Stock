@@ -43,6 +43,7 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnusua = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctSalir)).BeginInit();
@@ -113,7 +114,7 @@
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(660, 5);
+            this.comboBox1.Location = new System.Drawing.Point(674, 7);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(160, 24);
@@ -125,7 +126,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.ForeColor = System.Drawing.Color.DarkGray;
-            this.checkBox1.Location = new System.Drawing.Point(565, 7);
+            this.checkBox1.Location = new System.Drawing.Point(598, 7);
             this.checkBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(69, 23);
@@ -141,7 +142,7 @@
             this.btnEli.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnEli.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.btnEli.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnEli.Location = new System.Drawing.Point(519, 4);
+            this.btnEli.Location = new System.Drawing.Point(560, 4);
             this.btnEli.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEli.Name = "btnEli";
             this.btnEli.Size = new System.Drawing.Size(32, 30);
@@ -157,7 +158,7 @@
             this.btnAña.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnAña.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.btnAña.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAña.Location = new System.Drawing.Point(479, 4);
+            this.btnAña.Location = new System.Drawing.Point(522, 4);
             this.btnAña.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAña.Name = "btnAña";
             this.btnAña.Size = new System.Drawing.Size(32, 30);
@@ -204,7 +205,7 @@
             this.btnEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.btnEdit.Image = global::Stock.Properties.Resources.bxs_edit_alt;
             this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEdit.Location = new System.Drawing.Point(353, 1);
+            this.btnEdit.Location = new System.Drawing.Point(402, 1);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(4);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(113, 34);
@@ -230,12 +231,23 @@
             this.toolTip1.SetToolTip(this.pictureBox2, "Minimizar");
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
+            // btnusua
+            // 
+            this.btnusua.Location = new System.Drawing.Point(358, 2);
+            this.btnusua.Name = "btnusua";
+            this.btnusua.Size = new System.Drawing.Size(37, 36);
+            this.btnusua.TabIndex = 24;
+            this.btnusua.Text = "Admin";
+            this.btnusua.UseVisualStyleBackColor = true;
+            this.btnusua.Visible = false;
+            // 
             // ventanapr
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(929, 532);
+            this.Controls.Add(this.btnusua);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.btnEli);
@@ -281,5 +293,6 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button btnusua;
     }
 }

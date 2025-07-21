@@ -13,11 +13,16 @@ namespace Stock
     public partial class ventanapr : Form
     {
         Metodos Metodos = new Metodos();
-        
-        
+
         public ventanapr()
         {
             InitializeComponent();
+        }
+        public ventanapr(bool admin)
+        {
+            InitializeComponent();
+            if (admin)
+                btnusua.Visible = true;
         }
 
         private void pctSalir_Click(object sender, EventArgs e)
@@ -27,6 +32,7 @@ namespace Stock
 
         private void ventanapr_Load(object sender, EventArgs e)
         {
+            
             checkBox1.Checked = true;
             comboBox1.Enabled = false;
             dataGridView1.RowHeadersVisible = false;

@@ -15,7 +15,7 @@ namespace Stock
     {
         //Instancio el archivo de metodos
         Metodos Metodos = new Metodos();
-        Form Principal = new ventanapr();
+
         public frmLogin()
         {
             InitializeComponent();    
@@ -42,12 +42,14 @@ namespace Stock
             string Usu = txtus.Text;
             string Pass = txtcontra.Text;
             //Llamo al metodo de Usuario existente y le envio la consulta
-            string sSQL = "SELECT Usuario FROM Usuarios WHERE Usuario = '" + Usu + "' AND Contraseña = '" + Pass + "'";
-            bool UE = Metodos.Ex(sSQL);
+            bool UE = Metodos.Ex("SELECT Usuario FROM Usuarios WHERE Usuario = '" + Usu + "' AND Contraseña = '" + Pass + "'");
+            //verifico si el usuario es admin
+            bool admin = Metodos.Ex("SELECT Usuario FROM Usuarios WHERE Usuario = '" + Usu + "' AND id = " + 1 + "");
 
             if (UE == true)
             {
                 //en caso del usuario exista
+                Form Principal = new ventanapr(admin);
                 this.Hide();
                 Principal.Show();
             }
@@ -59,8 +61,9 @@ namespace Stock
                     confirmationForm.ShowDialog();
                 }
                 //Login funcional aun sin Usuario y Contraseña a forma de Debug
+                Form Usuarios = new frmUsuarios();
                 this.Hide();
-                Principal.Show();
+                Usuarios.Show();
             }
 
 
