@@ -46,6 +46,8 @@ namespace Stock
 
         private void btningresar_Click(object sender, EventArgs e)
         {
+
+            int idcat = Convert.ToInt32(comboBox1.SelectedValue);
             //Verificaciones de campos necesarios
             if (txtnomb.Text == "")
             {
@@ -63,7 +65,7 @@ namespace Stock
                     return;
                 }
             }
-            if (txtcat.Visible == true)
+            if (checkBox1.Checked)
             {
                 if (txtcat.Text == "")
                 {
@@ -87,135 +89,65 @@ namespace Stock
                 Cant = 0;
             }
 
-            switch (Edit)
+            
+            //Verifico que no exista una Cat Con el mismo nombre
+            if (Metodos.Ex("SELECT Categoria FROM Categorias WHERE Categoria = '"+txtcat.Text+"'"))
             {
-                case true:
-                    break;
-
-                case false:
-                    break;
+                using (var confirmationForm = new frmError("La categoria ya existe"))
+                {
+                    confirmationForm.ShowDialog();
+                    return;
+                }
             }
 
 
-            if (!(txtnomb.Text==""))
+            //Creo nueva Cat si Chekbox de Cat Nuevo esta activo
+            if (checkBox1.Checked)
+            {
+                Metodos.connW("INSERT INTO Categorias (Categoria) VALUES ('" + txtcat.Text + "')");
+                idcat = Convert.ToInt32(Metodos.ConnR_DR("SElECT id_cat FROM Categorias WHERE Categoria='" + txtcat.Text + "'", "id_cat")[0]);
+            }
+
+            //Verifico que no exista un producto con el mismo nombre
+            try
+            {
+                if (Metodos.Ex("SELECT Nombre FROM Stock WHERE Nombre = '" + txtnomb.Text + "' AND ID <> " + Id))
                 {
-
-                    try
-                    {
-                        try
-                        {
-                            Cant = Convert.ToInt32(txtcant.Text);
-                        }
-                        catch (Exception)
-                        {
-
-                            Cant = 0;
-                        }
-
-                        if (Edit==false)
-                        {
-                            if (Metodos.Ex("SELECT Nombre FROM Stock WHERE Nombre = '" + txtnomb.Text + "'") == false)
-                            {
-                                if (txtcat.Visible == true)
-                                {
-                                    if (txtcat.Text=="")
-                                    {
-                                        using (var confirmationForm = new frmError("El campo de categoria no puede estar vacio"))
-                                        {
-                                            confirmationForm.ShowDialog();
-                                        }
-                                    }
-                                    else
-                                    {
-                                        if (Metodos.Ex("SELECT Categoria FROM Categorias WHERE Categoria = '"+txtcat.Text+"'"))
-                                        {
-                                            Metodos.connW("INSERT INTO Categorias (Categoria) VALUES ('" + txtcat.Text + "')");
-                                            int idcat = Convert.ToInt32(Metodos.ConnR_DR("SElECT id_cat FROM Categorias WHERE Categoria='" + txtcat.Text + "'", "id_cat")[0]);
-                                            Metodos.connW("INSERT INTO Stock (Nombre,Cantidad,Descripcion,id_cat) VALUES ('" + txtnomb.Text + "', " + Cant + ", '" + txtdesc.Text + "', " + idcat + ")");
-                                            Reload();
-                                            using (var confirmationForm = new frmBienv("El producto fue creado exitosamente"))
-                                            {
-                                                confirmationForm.ShowDialog();
-                                            }
-                                        }
-                                        else
-                                        {
-                                            using (var confirmationForm = new frmError("La categoria ya existe"))
-                                            {
-                                                confirmationForm.ShowDialog();
-                                            }
-                                        }
-                                       
-                                        
-
-                                    }  
-                                }
-                                else {
-                                    Metodos.connW("INSERT INTO Stock (Nombre,Cantidad,Descripcion,id_cat) VALUES ('" + txtnomb.Text + "', " + Cant + ", '" + txtdesc.Text + "', " + comboBox1.SelectedValue + ")");
-                                    using (var confirmationForm = new frmBienv("El producto fue creado exitosamente"))
-                                    {
-                                        confirmationForm.ShowDialog();
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                using (var confirmationForm = new frmError("El Producto ya existe"))
-                                {
-                                    confirmationForm.ShowDialog();
-                                }
-                            }
-                        }
-                        else
-                        {
-                            if (txtcat.Visible == true)
-                            {
-                                if (txtcat.Text == "")
-                                {
-                                    using (var confirmationForm = new frmError("El campo de categoria no puede estar vacio"))
-                                    {
-                                        confirmationForm.ShowDialog();
-                                    }
-                                }
-                                else
-                                {
-                                    Metodos.connW("INSERT INTO Categorias (Categoria) VALUES ('" + txtcat.Text + "')");
-                                    int idcat = Convert.ToInt32(Metodos.ConnR_DR("SElECT id_cat FROM Categorias WHERE Categoria='" + txtcat.Text + "'", "id_cat")[0]);
-                                    Metodos.connW("UPDATE Stock SET Nombre ='" + txtnomb.Text + "', Cantidad=" + txtcant.Text + ", Descripcion ='" + txtdesc.Text + "', id_cat =" + idcat + " WHERE ID=" + Id);
-                                    Reload();
-                                    using (var confirmationForm = new frmBienv("El producto fue actualizado exitosamente"))
-                                    {
-                                        confirmationForm.ShowDialog();
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                Metodos.connW("UPDATE Stock SET Nombre ='" + txtnomb.Text + "', Cantidad=" + txtcant.Text + ", Descripcion ='" + txtdesc.Text + "', id_cat =" + comboBox1.SelectedValue + " WHERE ID=" + Id);
-                                using (var confirmationForm = new frmBienv("El producto fue actualizado exitosamente"))
-                                {
-                                    confirmationForm.ShowDialog();
-                                }
-
-                            }
-                        }
-                    }
-                    catch (Exception Err)
-                    {
-                        //En caso de que falle llamo al form de error
-                        using (var confirmationForm = new frmError(Err))
-                        {
-                            confirmationForm.ShowDialog();
-                        }
-                    }
-                }
-                else
-                {
-                    using (var confirmationForm = new frmError("El nombre es obligatorio para añadir o editar un producto"))
+                    using (var confirmationForm = new frmError("Ya existe un producto con ese nombre"))
                     {
                         confirmationForm.ShowDialog();
+                        return;
                     }
                 }
+            }
+            catch (Exception err)
+            {
+                using (var confirmationForm = new frmError(err))
+                {
+                    confirmationForm.ShowDialog();
+                    return;
+                }
+            }
+
+            //Añado o actualizo el producto dependiendo la variable Edit
+            if (Edit)
+            {
+                Metodos.connW("UPDATE Stock SET Nombre ='" + txtnomb.Text + "', Cantidad=" + txtcant.Text + ", Descripcion ='" + txtdesc.Text + "', id_cat =" + idcat + " WHERE ID=" + Id);
+                Reload();
+                using (var confirmationForm = new frmBienv("El producto fue actualizado exitosamente"))
+                {
+                    confirmationForm.ShowDialog();
+                }
+            }
+            else
+            {
+                Metodos.connW("INSERT INTO Stock (Nombre,Cantidad,Descripcion,id_cat) VALUES ('" + txtnomb.Text + "', " + Cant + ", '" + txtdesc.Text + "', " + idcat + ")");
+                Reload();
+                using (var confirmationForm = new frmBienv("El producto fue creado exitosamente"))
+                {
+                    confirmationForm.ShowDialog();
+                }
+            }
 
         }
         private void pictureBox1_Click(object sender, EventArgs e)

@@ -16,7 +16,7 @@ namespace Stock
      
         //Metodo para lectura de la base de datos recibiendo la consulta SQL
         public DataTable connR(string sSQL)
-        {
+        {          
             //instancio el objeto Connection y le asigno la cadena
             OleDbConnection cnn = new OleDbConnection(cadenaConexion);
             //me aseguro que el DataSet este vacio (por alguna secion anterior)
