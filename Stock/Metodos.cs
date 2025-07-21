@@ -27,7 +27,7 @@ namespace Stock
                 OleDbConnection cnn = new OleDbConnection(cadenaConexion);
                 //me aseguro que el DataSet este vacio (por alguna secion anterior)
                 if (cnn.State == ConnectionState.Open) cnn.Close(); // Si la conexion quedo abierta la cierro
-                                                                    //abro la conexion
+                //abro la conexion
                 cnn.Open();
                 //instancio el objeto DataAdapter y le asigno la consulta y la conexion
                 OleDbDataAdapter da = new OleDbDataAdapter(sSQL, cnn);

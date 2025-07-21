@@ -38,8 +38,6 @@ namespace Stock
         private void btnacce_Click(object sender, EventArgs e)
         {
             //verificacion de usurario Existente
-            try
-            {
                 //defino las variables
                 string Usu = txtus.Text;
                 string Pass = txtcontra.Text;
@@ -66,15 +64,7 @@ namespace Stock
                     default:
                         break;
                 }
-            }
-            catch (Exception err)
-            {
-                //En caso de que falle llamo al form de error y le envio el Exception
-                using (var confirmationForm = new frmError(err))
-                {
-                    confirmationForm.ShowDialog();
-                }
-            }
+
         }
 
 

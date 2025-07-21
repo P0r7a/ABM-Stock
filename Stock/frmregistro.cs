@@ -34,64 +34,53 @@ namespace Stock
                 using (var confirmationForm = new frmError("Ningun campo puede estar vacio"))
                 {
                     confirmationForm.ShowDialog();
+                    return;
                 }
                 
             }
+
+            if (txtcrearcon.Text != txtconfcon.Text)
+            {
+                //En caso de que los campos de contraseña no sean iguales se avisa mediante el form de error
+                using (var confirmationForm = new frmError("Los campos de contraseña y confirmacion deben ser iguales"))
+                {
+                    confirmationForm.ShowDialog();
+                    return;
+                }
+            }
+
+            //Se definen las variables
+            string usu = txtcrearus.Text;
+            string contr = txtcrearcon.Text;
+            //se llama el metodo de Usuario existente 
+            //para verficar que no haya un usuario con el mismo nombre enviandole la consulta
+            string sSQL = "SELECT Usuario FROM Usuarios WHERE Usuario = '" + usu + "'";
+            bool UE = Metodos.Ex(sSQL);
+            if (UE)
+            {
+                //En caso de que el usuario ya exista se llama al from de error
+                using (var confirmationForm = new frmError("Usuario ya existente"))
+                {
+                    confirmationForm.ShowDialog();
+                    return;
+                }
+            }
             else
             {
-                //En caso de que esten completos se Verifica los campos de contraseña 
-                if (txtcrearcon.Text == txtconfcon.Text)
+                //en caso de que no exista se la consulta SQL
+                //y se envia al metodo de conexion de lectura a la Base de datos
+                sSQL = "INSERT INTO Usuarios (Usuario, Contraseña) VALUES ('" + usu + "', '" + contr + "')";
+                Metodos.connW(sSQL);
+                //se llama al form de bienvenida
+                using (var confirmationForm = new frmBienv("Usuario registrado correctamente"))
                 {
-                    //En caso de que sean iguales
-                    try
-                    {
-                        //Se definen las variables
-                        string usu = txtcrearus.Text;
-                        string contr = txtcrearcon.Text;
-                        //se llama el metodo de Usuario existente 
-                        //para verficar que no haya un usiario con el mismo nombre enviandole la consulta
-                        string sSQL = "SELECT Usuario FROM Usuarios WHERE Usuario = '" + usu + "'";
-                        bool UE = Metodos.Ex(sSQL);
-                        if (UE)
-                        {
-                            //En caso de que el usuario ya exista se llama al from de error
-                            using (var confirmationForm = new frmError("Usuario ya existente"))
-                            {
-                                confirmationForm.ShowDialog();
-                            }
-                        }
-                        else
-                        {
-                            //en caso de que no exista se la consulta SQL
-                            //y se envia al metodo de conexion de lectura a la Base de datos
-                            sSQL = "INSERT INTO Usuarios (Usuario, Contraseña) VALUES ('" + usu + "', '" + contr + "')";
-                            Metodos.connW(sSQL);
-                            //se llama al form de bienvenida
-                            using (var confirmationForm = new frmBienv("Usuario registrado correctamente"))
-                            {
-                                confirmationForm.ShowDialog();
-                            }
-
-                        }
-                    }
-                    catch (Exception err)
-                    {
-                        //en caso de error se llama el form de error y se le envia el Exception
-                        using (var confirmationForm = new frmError(err))
-                        {
-                            confirmationForm.ShowDialog();
-                        }
-                    }
+                    confirmationForm.ShowDialog();
+                    return;
                 }
-                else
-                {
-                    //En caso de que los campos de contraseña no sean iguales se avisa mediante el form de error
-                    using (var confirmationForm = new frmError("Los campos de contraseña y confirmacion deben ser iguales"))
-                    {
-                        confirmationForm.ShowDialog();
-                    }
-                } 
-            }  
+
+            }
+            
+         
         }
 
 

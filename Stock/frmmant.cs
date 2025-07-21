@@ -109,25 +109,16 @@ namespace Stock
             }
 
             //Verifico que no exista un producto con el mismo nombre
-            try
+            
+            if (Metodos.Ex("SELECT Nombre FROM Stock WHERE Nombre = '" + txtnomb.Text + "' AND ID <> " + Id))
             {
-                if (Metodos.Ex("SELECT Nombre FROM Stock WHERE Nombre = '" + txtnomb.Text + "' AND ID <> " + Id))
-                {
-                    using (var confirmationForm = new frmError("Ya existe un producto con ese nombre"))
-                    {
-                        confirmationForm.ShowDialog();
-                        return;
-                    }
-                }
-            }
-            catch (Exception err)
-            {
-                using (var confirmationForm = new frmError(err))
+                using (var confirmationForm = new frmError("Ya existe un producto con ese nombre"))
                 {
                     confirmationForm.ShowDialog();
                     return;
                 }
             }
+
 
             //Añado o actualizo el producto dependiendo la variable Edit
             if (Edit)
