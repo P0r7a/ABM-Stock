@@ -66,7 +66,7 @@
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.lineShape2,
             this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(697, 432);
+            this.shapeContainer1.Size = new System.Drawing.Size(929, 532);
             this.shapeContainer1.TabIndex = 0;
             this.shapeContainer1.TabStop = false;
             // 
@@ -85,23 +85,27 @@
             this.txtbusqueda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtbusqueda.Font = new System.Drawing.Font("Malgun Gothic", 12F);
             this.txtbusqueda.ForeColor = System.Drawing.Color.White;
-            this.txtbusqueda.Location = new System.Drawing.Point(29, 0);
+            this.txtbusqueda.Location = new System.Drawing.Point(39, 0);
+            this.txtbusqueda.Margin = new System.Windows.Forms.Padding(4);
             this.txtbusqueda.MaxLength = 20;
             this.txtbusqueda.Name = "txtbusqueda";
-            this.txtbusqueda.Size = new System.Drawing.Size(231, 29);
+            this.txtbusqueda.Size = new System.Drawing.Size(307, 34);
             this.txtbusqueda.TabIndex = 2;
             this.txtbusqueda.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbusqueda_KeyDown);
             this.txtbusqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbusqueda_KeyPress);
+            this.txtbusqueda.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtbusqueda_KeyUp);
             // 
             // dataGridView1
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 35);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 43);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(697, 397);
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.Size = new System.Drawing.Size(929, 489);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
@@ -109,9 +113,10 @@
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(495, 4);
+            this.comboBox1.Location = new System.Drawing.Point(660, 5);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.Size = new System.Drawing.Size(160, 24);
             this.comboBox1.TabIndex = 7;
             this.comboBox1.SelectionChangeCommitted += new System.EventHandler(this.comboBox1_SelectionChangeCommitted_1);
             // 
@@ -120,10 +125,10 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.ForeColor = System.Drawing.Color.DarkGray;
-            this.checkBox1.Location = new System.Drawing.Point(424, 6);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.checkBox1.Location = new System.Drawing.Point(565, 7);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(58, 20);
+            this.checkBox1.Size = new System.Drawing.Size(69, 23);
             this.checkBox1.TabIndex = 6;
             this.checkBox1.Text = "Todo";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -136,10 +141,10 @@
             this.btnEli.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnEli.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.btnEli.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnEli.Location = new System.Drawing.Point(389, 3);
-            this.btnEli.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEli.Location = new System.Drawing.Point(519, 4);
+            this.btnEli.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEli.Name = "btnEli";
-            this.btnEli.Size = new System.Drawing.Size(24, 24);
+            this.btnEli.Size = new System.Drawing.Size(32, 30);
             this.btnEli.TabIndex = 5;
             this.toolTip1.SetToolTip(this.btnEli, "Eliminar un Producto");
             this.btnEli.UseVisualStyleBackColor = false;
@@ -152,10 +157,10 @@
             this.btnAña.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnAña.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.btnAña.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAña.Location = new System.Drawing.Point(359, 3);
-            this.btnAña.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAña.Location = new System.Drawing.Point(479, 4);
+            this.btnAña.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAña.Name = "btnAña";
-            this.btnAña.Size = new System.Drawing.Size(24, 24);
+            this.btnAña.Size = new System.Drawing.Size(32, 30);
             this.btnAña.TabIndex = 4;
             this.toolTip1.SetToolTip(this.btnAña, "Añadir un producto");
             this.btnAña.UseVisualStyleBackColor = false;
@@ -166,9 +171,10 @@
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Image = global::Stock.Properties.Resources.lupa;
-            this.pictureBox1.Location = new System.Drawing.Point(2, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(3, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox1.Size = new System.Drawing.Size(39, 36);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -179,9 +185,10 @@
             this.pctSalir.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pctSalir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pctSalir.Image = global::Stock.Properties.Resources.x_circle;
-            this.pctSalir.Location = new System.Drawing.Point(667, 0);
+            this.pctSalir.Location = new System.Drawing.Point(889, 0);
+            this.pctSalir.Margin = new System.Windows.Forms.Padding(4);
             this.pctSalir.Name = "pctSalir";
-            this.pctSalir.Size = new System.Drawing.Size(30, 30);
+            this.pctSalir.Size = new System.Drawing.Size(39, 36);
             this.pctSalir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pctSalir.TabIndex = 10;
             this.pctSalir.TabStop = false;
@@ -197,9 +204,10 @@
             this.btnEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.btnEdit.Image = global::Stock.Properties.Resources.bxs_edit_alt;
             this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEdit.Location = new System.Drawing.Point(265, 1);
+            this.btnEdit.Location = new System.Drawing.Point(353, 1);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(4);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(85, 28);
+            this.btnEdit.Size = new System.Drawing.Size(113, 34);
             this.btnEdit.TabIndex = 3;
             this.btnEdit.Text = "Editar";
             this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -212,9 +220,10 @@
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = global::Stock.Properties.Resources.minus_circle_regular_24;
-            this.pictureBox2.Location = new System.Drawing.Point(638, 0);
+            this.pictureBox2.Location = new System.Drawing.Point(851, 0);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox2.Size = new System.Drawing.Size(40, 37);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 23;
             this.pictureBox2.TabStop = false;
@@ -223,10 +232,10 @@
             // 
             // ventanapr
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ClientSize = new System.Drawing.Size(697, 432);
+            this.ClientSize = new System.Drawing.Size(929, 532);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.btnEli);
@@ -239,6 +248,7 @@
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.shapeContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "ventanapr";
             this.Opacity = 0.95D;

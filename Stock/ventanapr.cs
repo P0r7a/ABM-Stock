@@ -61,11 +61,7 @@ namespace Stock
 
         private void txtbusqueda_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyData == Keys.Enter)
-            {
-                bsq();
-                
-            }
+
         }
         private void bsq()
         { 
@@ -183,23 +179,20 @@ namespace Stock
 
         private void txtbusqueda_KeyPress(object sender, KeyPressEventArgs e)
         {
+
             if (Metodos.CharVer(e.KeyChar) == true)
             {
                 e.Handled = true;
             }
+
         }
 
 
 
-       
-
-
-
-
-
-
-        
-
+        private void txtbusqueda_KeyUp(object sender, KeyEventArgs e)
+        {
+            bsq();
+        }
     }
 }
 
