@@ -18,32 +18,6 @@ Este proyecto es una aplicación de escritorio desarrollada en **C# con Windows 
 - **Base de Datos:** Microsoft Access
 - **IDE:** Visual Studio
 
-## 🚀 Cómo ejecutar el proyecto
-
-1. Clonar este repositorio:
-
-   ```bash
-   git clone https://github.com/tu-usuario/tu-repo.git
-   ```
-
-2. Abrir la solución `Proyecto.sln` con **Visual Studio**.
-
-3. Verificar que el archivo de base de datos `Proyecto.accdb` esté ubicado en la carpeta `Resources`.
-
-4. Compilar y ejecutar presionando `F5`.
-
-## 📁 Estructura del Proyecto
-
-```
-Proyecto/
-├── Resources/
-│   └── Proyecto.accdb        # Base de datos Access
-├── frmLogin.cs               # Formulario de autenticación
-├── frmMain.cs                # Pantalla principal y navegación
-├── frmABM*.cs                # Formularios por categoría para ABM
-├── Program.cs                # Punto de entrada de la aplicación
-└── Proyecto.sln              # Solución de Visual Studio
-```
 
 ## 👨‍💻 Autor
 
