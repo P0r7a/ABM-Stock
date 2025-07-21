@@ -15,7 +15,7 @@ namespace Stock
     {
         //Instancio el archivo de metodos
         Metodos Metodos = new Metodos();
-
+        Form Principal = new ventanapr();
         public frmLogin()
         {
             InitializeComponent();    
@@ -50,7 +50,6 @@ namespace Stock
                 {
                     case true:
                         //en caso del usuario exista
-                        Form Principal = new ventanapr();
                         this.Hide();
                         Principal.Show();
                         break;
@@ -60,6 +59,9 @@ namespace Stock
                         {
                             confirmationForm.ShowDialog();
                         }
+                        //Login funcional aun sin Usuario y Contraseña a forma de Debug
+                        this.Hide();
+                        Principal.Show();
                         break;
                     default:
                         break;
