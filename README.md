@@ -24,7 +24,7 @@ Este proyecto es una aplicación de escritorio desarrollada en **C# con Windows 
 **Facundo Aguiar**  
 Técnico en Programación  
 📧 [Facundoaguiar45@gmail.com)]  
-🔗 [(https://www.linkedin.com/in/facundoaguiar)]
+🔗 [(https://www.linkedin.com/in/facundoaguiar)]  
 🔗 [(www.facundo.net.ar)]
 
 ---
