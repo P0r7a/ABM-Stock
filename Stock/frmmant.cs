@@ -75,7 +75,7 @@ namespace Stock
                                     }
                                     else
                                     {
-                                        if (Metodos.Ex("SELECT Categoria FROM Categoria WHERE Categoria = '"+txtcat.Text+"'"))
+                                        if (Metodos.Ex("SELECT Categoria FROM Categorias WHERE Categoria = '"+txtcat.Text+"'"))
                                         {
                                             Metodos.connW("INSERT INTO Categorias (Categoria) VALUES ('" + txtcat.Text + "')");
                                             int idcat = Convert.ToInt32(Metodos.ConnR_DR("SElECT id_cat FROM Categorias WHERE Categoria='" + txtcat.Text + "'", "id_cat")[0]);
@@ -148,10 +148,10 @@ namespace Stock
                             }
                         }
                     }
-                    catch (Exception )
+                    catch (Exception Err)
                     {
                         //En caso de que falle llamo al form de error
-                        using (var confirmationForm = new frmError("Algun campo es incorrecto"))
+                        using (var confirmationForm = new frmError(Err))
                         {
                             confirmationForm.ShowDialog();
                         }

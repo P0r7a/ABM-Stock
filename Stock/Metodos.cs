@@ -97,6 +97,11 @@ namespace Stock
                 columnaEle.Add(DR[N].ToString());
             }
 
+            //cierro la conexion
+            cnn.Close();
+            //libero la memoria
+            cnn.Dispose();
+            //retorno el resultado
             return columnaEle;
         }
 
