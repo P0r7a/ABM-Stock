@@ -38,32 +38,31 @@ namespace Stock
         private void btnacce_Click(object sender, EventArgs e)
         {
             //verificacion de usurario Existente
-                //defino las variables
-                string Usu = txtus.Text;
-                string Pass = txtcontra.Text;
-                //Llamo al metodo de Usuario existente y le envio la consulta
-                string sSQL = "SELECT Usuario FROM Usuarios WHERE Usuario = '" + Usu + "' AND Contraseña = '" + Pass + "'";
-                bool UE = Metodos.Ex(sSQL);
-                switch (UE)
+            //defino las variables
+            string Usu = txtus.Text;
+            string Pass = txtcontra.Text;
+            //Llamo al metodo de Usuario existente y le envio la consulta
+            string sSQL = "SELECT Usuario FROM Usuarios WHERE Usuario = '" + Usu + "' AND Contraseña = '" + Pass + "'";
+            bool UE = Metodos.Ex(sSQL);
+
+            if (UE == true)
+            {
+                //en caso del usuario exista
+                this.Hide();
+                Principal.Show();
+            }
+            else
+            {
+                //en caso del usuario no exista
+                using (var confirmationForm = new frmError("Usuario y/o contraseña no validos"))
                 {
-                    case true:
-                        //en caso del usuario exista
-                        this.Hide();
-                        Principal.Show();
-                        break;
-                    case false:
-                        //en caso del usuario no exista
-                        using (var confirmationForm = new frmError("Usuario y/o contraseña no validos"))
-                        {
-                            confirmationForm.ShowDialog();
-                        }
-                        //Login funcional aun sin Usuario y Contraseña a forma de Debug
-                        this.Hide();
-                        Principal.Show();
-                        break;
-                    default:
-                        break;
+                    confirmationForm.ShowDialog();
                 }
+                //Login funcional aun sin Usuario y Contraseña a forma de Debug
+                this.Hide();
+                Principal.Show();
+            }
+
 
         }
 
