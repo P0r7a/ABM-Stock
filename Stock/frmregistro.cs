@@ -49,8 +49,8 @@ namespace Stock
                         string usu = txtcrearus.Text;
                         string contr = txtcrearcon.Text;
                         //se llama el metodo de Usuario existente 
-                        //para verficar que no haya un usiario con el mismo nombre enciandole la consulta
-                        string sSQL = "SELECT Usuario FROM Usuarios WHERE Usuario = '" + usu + "' AND Contraseña = '" + contr + "'";
+                        //para verficar que no haya un usiario con el mismo nombre enviandole la consulta
+                        string sSQL = "SELECT Usuario FROM Usuarios WHERE Usuario = '" + usu + "'";
                         bool UE = Metodos.Ex(sSQL);
                         if (UE)
                         {
@@ -63,7 +63,7 @@ namespace Stock
                         else
                         {
                             //en caso de que no exista se la consulta SQL
-                            //y se envia al metodo de coneccion de lectura a la Base de datos
+                            //y se envia al metodo de conexion de lectura a la Base de datos
                             sSQL = "INSERT INTO Usuarios (Usuario, Contraseña) VALUES ('" + usu + "', '" + contr + "')";
                             Metodos.connW(sSQL);
                             //se llama al form de bienvenida

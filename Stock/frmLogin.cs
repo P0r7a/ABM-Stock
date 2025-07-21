@@ -124,10 +124,10 @@ namespace Stock
 
         private void txtus_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (Metodos.CharVer(e.KeyChar)==true)
-            {
-                e.Handled = true;
-            }
+            /* if (Metodos.CharVer(e.KeyChar)==true)
+             {
+                 e.Handled = true;
+             }*/
         }
 
         private void txtcontra_KeyPress(object sender, KeyPressEventArgs e)
