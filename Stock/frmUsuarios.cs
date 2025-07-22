@@ -25,7 +25,27 @@ namespace Stock
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.AllowUserToResizeColumns = false;
             dataGridView1.AllowUserToResizeRows = false;
-            dataGridView1.DataSource = Metodos.connR("SELECT Usuario,Contraseña FROM Usuarios");
+            dataGridView1.DataSource = Metodos.connR("SELECT Usuario FROM Usuarios");
+        }
+
+        private void btnelim_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int id = Convert.ToInt32(Metodos.ConnR_DR("SELECT ID FROM Stock WHERE Nombre='" + dataGridView1.SelectedCells[0].Value.ToString() + "'", "ID")[0]);
+                if (Metodos.SiNo("¿Está seguro de que desea eliminar este producto?") == true)
+                {
+                    Metodos.connW("DELETE * FROM Stock WHERE ID = " + id);
+                }
+            }
+            catch (Exception)
+            {
+
+                using (var confirmationForm = new frmError("Por favor seleccione un producto para eliminarlo"))
+                {
+                    confirmationForm.ShowDialog();
+                }
+            }
         }
     }
 }
