@@ -119,7 +119,7 @@ namespace Stock
             try
             {
                 int id =Convert.ToInt32(Metodos.ConnR_DR("SELECT ID FROM Stock WHERE Nombre='"+ dataGridView1.SelectedCells[0].Value.ToString() +"'" ,"ID")[0]);
-                if (Metodos.SiNo("¿Está seguro de que desea eliminar este producto?") == true)
+                if (Metodos.SiNo("¿Está seguro de que desea eliminar este producto?"))
                 {
                     Metodos.connW("DELETE * FROM Stock WHERE ID = " + id);
                     bsq();

@@ -32,10 +32,21 @@ namespace Stock
         {
             try
             {
-                int id = Convert.ToInt32(Metodos.ConnR_DR("SELECT ID FROM Stock WHERE Nombre='" + dataGridView1.SelectedCells[0].Value.ToString() + "'", "ID")[0]);
-                if (Metodos.SiNo("¿Está seguro de que desea eliminar este producto?") == true)
+                int id = Convert.ToInt32(Metodos.ConnR_DR("SELECT id FROM Usuarios WHERE Usuario='" + dataGridView1.SelectedCells[0].Value.ToString() + "'", "id")[0]);
+
+                if (id == 1)
                 {
-                    Metodos.connW("DELETE * FROM Stock WHERE ID = " + id);
+                    using (var confirmationForm = new frmError("No se puede eliminar el Ususario de Administrador"))
+                    {
+                        confirmationForm.ShowDialog();
+                        return;
+                    }
+                }
+                
+                if (Metodos.SiNo("¿Está seguro de que desea eliminar este Usuario?"))
+                {
+                    Metodos.connW("DELETE * FROM Usuarios WHERE id = " + id);
+                    dataGridView1.DataSource = Metodos.connR("SELECT Usuario FROM Usuarios");
                 }
             }
             catch (Exception)
