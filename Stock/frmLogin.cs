@@ -73,9 +73,14 @@ namespace Stock
         private void lblReg_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             //Boton para el form de registro
-            Form Registro = new frmregistro();
-            this.Hide();
-            Registro.Show();
+
+            using (var confirmationForm = new frmregistro())
+            {
+                confirmationForm.ShowDialog();
+            }
+            //Form Registro = new frmregistro();
+            //this.Hide();
+            //Registro.Show();
         }
 
 

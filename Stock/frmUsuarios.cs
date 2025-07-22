@@ -58,5 +58,23 @@ namespace Stock
                 }
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var Form = new frmregistro();
+            {
+                Form.ShowDialog();
+                dataGridView1.DataSource = Metodos.connR("SELECT Usuario FROM Usuarios");
+            }
+        }
+
+        private void Salir_Click(object sender, EventArgs e)
+        {
+            //Boton de salir
+            if (Metodos.SiNo("Esta seguro de que desea salir") == true)
+            {
+                Application.Exit();
+            }
+        }
     }
 }

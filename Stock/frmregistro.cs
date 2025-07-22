@@ -87,8 +87,8 @@ namespace Stock
         private void pctSalir_Click(object sender, EventArgs e)
         {
             //Boton de salir que envia al form de login
-            Form Ingreso = new frmLogin();
-            Ingreso.Show();
+            //Form Ingreso = new frmLogin();
+            //Ingreso.Show();
             this.Close();
         }
 
